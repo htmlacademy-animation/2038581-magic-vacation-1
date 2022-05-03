@@ -140,11 +140,16 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+    & li {
+      opacity: 1;
+    }
   }
 
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -156,6 +161,14 @@
 
     @media (max-width: $mobile) and (orientation: landscape) {
       margin: 0 1.25rem;
+    }
+
+    &:nth-child(2) {
+      transition-delay: 100ms;
+    }
+
+    &:nth-child(3) {
+      transition-delay: 200ms;
     }
   }
 }
