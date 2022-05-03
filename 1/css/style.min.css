@@ -3703,6 +3703,19 @@ img {
   transition-delay: 200ms;
 }
 
+@media (orientation: portrait) {
+  .swiper-slide-next .slider__item-text {
+    right: -20px;
+    opacity: 0;
+  }
+}
+@media (max-width: 768px) and (orientation: landscape) {
+  .swiper-slide-next .slider__item-text {
+    right: -20px;
+    opacity: 0;
+  }
+}
+
 .slider__controls {
   position: absolute;
   bottom: 2.8rem;
