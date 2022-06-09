@@ -1,0 +1,35 @@
+.body_loaded {
+  .page-header__wrapper {
+    opacity: 1;
+    transition: all 0.3s cubic-bezier(.38,.96,.68,.99);
+
+    .page-header__logo {
+      left: 0;
+      transition: all 0.3s ease-out;
+    }
+  }
+
+  .social-block__toggler {
+    transition: all 0.3s cubic-bezier(.35, .18, .47, 1.76) 0.1s;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .screen__footer {
+    transition: all 0.3s cubic-bezier(.38,.96,.68,.99);
+    bottom: 0;
+  }
+
+  .page-header__menu a {
+    &::after {
+      transition: width 0.2s;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+  }
+}
