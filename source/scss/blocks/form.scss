@@ -75,6 +75,34 @@
 }
 
 .form__button {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: $default-duration;
+  animation-delay: $default-duration;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+
+  & span {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: $default-duration;
+    animation-delay: 2 * $default-duration;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      opacity: 1;
+      animation: none;
+      transition: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
+    transition: none;
+  }
+
   @media (orientation: portrait) {
     position: relative;
     flex: none;
@@ -122,21 +150,78 @@
 .form--result {
   .form__field {
     width: calc(100% - 31rem);
+    padding: 0 3.6rem;
+    animation-name: slideRightInput, changeWidthDesktop;
+    animation-duration: $default-duration;
+    animation-delay: 2 * $default-duration;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @media (prefers-reduced-motion: reduce) {
+      opacity: 1;
+      padding: 0 5.6rem;
+      width: calc(100% - 31rem);
+      animation: none;
+      transition: none;
+    }
+
+    @keyframes slideRightInput {
+      from {
+        padding: 0 3.6rem;
+        opacity: 1;
+      }
+      to {
+        padding: 0 5.6rem;
+        opacity: 1;
+      }
+    }
+
+    @keyframes changeWidthDesktop {
+      from {
+        width: 0;
+      }
+      to {
+        width: calc(100% - 31rem);
+      }
+    }
+
+    @keyframes changeWidthTablet {
+      from {
+        width: 0;
+      }
+      to {
+        width: calc(100% - 9rem);
+      }
+    }
+
+    @keyframes changeWidthMobile {
+      from {
+        width: 0;
+      }
+      to {
+        width: calc(100% - 5rem);
+      }
+    }
 
     @media (min-width: $stop-scaling) {
       width: calc(100% - 310px);
+      animation-name: slideRightInput, changeWidthDesktop;
     }
 
     @media (orientation: portrait) {
       width: calc(100% - 5rem);
+      animation-name: slideRightInput, changeWidthMobile;
     }
 
     @media (max-width: $tablet) and (orientation: landscape) {
       width: calc(100% - 9rem);
+      animation-name: slideRightInput, changeWidthTablet;
     }
 
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
+      animation-name: slideRightInput, changeWidthMobile;
     }
   }
 }
