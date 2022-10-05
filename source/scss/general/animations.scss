@@ -1,0 +1,125 @@
+@keyframes pulse {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    width: 40%;
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate3d(0, 1em, 0);
+    overflow: hidden;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    overflow: visible;
+  }
+}
+
+@keyframes rotate-10 {
+  from {
+    rotate: -10deg;
+  }
+  to {
+    rotate: 0deg;
+  }
+}
+
+@keyframes scale25 {
+  from {
+    scale: 0.25;
+  }
+  to {
+     scale: 1;
+  }
+}
+
+.delay_0 {
+  animation-delay: 0;
+}
+
+.delay_50 {
+  animation-delay: 50ms;
+}
+
+.delay_100 {
+  animation-delay: 100ms;
+}
+
+.delay_150 {
+  animation-delay: 150ms;
+}
+
+.delay_200 {
+  animation-delay: 200ms;
+}
+
+.delay_250 {
+  animation-delay: 250ms;
+}
+
+
+.delay_300 {
+  animation-delay: 300ms;
+}
+
+.delay_350 {
+  animation-delay: 350ms;
+}
+
+.delay_400 {
+  animation-delay: 400ms;
+}
+
+.delay_700 {
+  animation-delay: 700ms;
+}
+
+.delay_750 {
+  animation-delay: 750ms;
+}
+
+.delay_800 {
+  animation-delay: 800ms;
+}
+
+.delay_850 {
+  animation-delay: 850ms;
+}
+
+.delay_900 {
+  animation-delay: 900ms;
+}
