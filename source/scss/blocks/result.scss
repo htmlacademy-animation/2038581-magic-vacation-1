@@ -49,8 +49,151 @@
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
+    position: absolute;
+    top: 40%;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-duration: $default-duration;
+
+    &.flamingo {
+      transform: translateY(5rem) rotate(0);
+      animation-name: fadeIn, rotate-10, slideDownFlamingo, moveFlamingo;
+      animation-delay: 0s, 0s, 0s, $default-duration;
+      animation-iteration-count: 1, 1, 1, infinite;
+      animation-duration: $default-duration, $default-duration, $default-duration, 1s;
+      animation-direction: alternate;
+      height: 40%;
+      left: -9rem;
+      opacity: 0;
+
+      @media (max-width: $tablet) {
+          left: -3rem;
+      }
+
+      @keyframes slideDownFlamingo {
+        from {
+          transform: translateY(20rem);
+        }
+        to {
+          transform: translateY(5rem);
+        }
+      }
+      @keyframes moveFlamingo {
+        0% {
+          transform: translateY(5rem) rotate(0);
+        }
+        80% {
+          transform: translateY(3rem) rotate(0);
+        }
+        100% {
+          transform: translateY(3rem) rotate(5deg);
+        }
+      }
+    }
+
+    &.suitcase {
+      transform: translateY(1rem) rotate(-10deg);
+      animation-name: scale25, slideDownSuitcase;
+      height: 45%;
+      rotate: -10deg;
+      left: -2rem;
+
+      @keyframes slideDownSuitcase {
+        from {
+          transform: translateY(18rem);
+        }
+        to {
+          transform: translateY(1rem);
+        }
+      }
+
+    }
+    &.leaf {
+      animation-delay: 250ms;
+      animation-duration: 1.5s;
+      opacity: 0;
+
+      &.green-leaf {
+        animation-name: fadeIn, moveGreenLeaf;
+        transform: translate(16rem, 13rem);
+        height: 20%;
+
+        @media (max-width: $tablet) {
+          transform: translate(8rem, 13rem);
+        }
+
+        @keyframes moveGreenLeaf {
+          0% {
+            rotate: -15deg;
+          }
+          20% {
+            rotate: 0deg;
+          }
+          50% {
+            rotate: -5deg;
+          }
+          100% {
+            rotate: 0deg;
+          }
+        }
+      }
+      &.blue-leaf1 {
+        animation-name: fadeIn, moveBlueLeaf1;
+        transform: translate(13rem, 1rem);
+        height: 32%;
+
+        @media (max-width: $tablet) {
+          transform: translate(7rem, 1rem);
+        }
+
+        @keyframes moveBlueLeaf1 {
+          0% {
+            rotate: -60deg;
+          }
+          20% {
+            rotate: 0deg;
+          }
+          50% {
+            rotate: -10deg;
+          }
+          100% {
+            rotate: 0deg;
+          }
+        }
+      }
+      &.blue-leaf2 {
+        animation-name: fadeIn, moveBlueLeaf2;
+        transform: translate(-19rem, 9rem);
+        height: 32%;
+
+        @media (max-width: $tablet) {
+          transform: translate(-9rem, 9rem);
+        }
+
+        @keyframes moveBlueLeaf2 {
+          0% {
+            rotate: 60deg;
+          }
+          20% {
+            rotate: 0deg;
+          }
+          50% {
+            rotate: 10deg;
+          }
+          100% {
+            rotate: 0deg;
+          }
+        }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      opacity: 1;
+      animation: none;
+      transition: none;
+    }
   }
 }
 

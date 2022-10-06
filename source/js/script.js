@@ -9,6 +9,7 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import load from './modules/load.js';
 import FullPageScroll from './modules/full-page-scroll';
+import accentText from './modules/accent-text.js';
 
 // init modules
 load();
@@ -20,6 +21,7 @@ chat();
 result();
 form();
 social();
+accentText();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();

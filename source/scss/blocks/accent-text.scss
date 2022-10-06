@@ -1,0 +1,18 @@
+.accent-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.accent-text__letter-container {
+  overflow: hidden;
+  padding: 2.5rem 0.5rem 0 0;
+  margin: -2.5rem -0.5rem 0 0;
+}
+
+.accent-text__letter {
+  transform: translate3d(0, 1em, 0);
+  animation-name: slideUp;
+  animation-timing-function: ease-out;
+  animation-duration: $default-duration;
+  animation-fill-mode: forwards;
+}
