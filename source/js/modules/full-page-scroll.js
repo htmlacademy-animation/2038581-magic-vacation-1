@@ -52,6 +52,7 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
+    document.body.classList.remove('light-blue', 'blue');
     this.screenElements.forEach((screen) => {
       screen.classList.remove(`active`);
     });
