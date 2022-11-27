@@ -51,38 +51,7 @@
   background-color: $c-light;
   z-index: 1;
 
-
-  @media (max-width: $tablet) and (orientation: portrait) {
-    background: none;
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
-
-    &.screen__footer--full , &.screen__footer--full .screen__footer-wrapper::after {
-      @keyframes slideInBottonLeftTablet {
-        from {
-          width: 3.5rem;
-          height: 3.5rem;
-        }
-        to {
-          width: 100%;
-          height: 18rem;
-        }
-      }
-      width: 100%;
-      height: 18rem;
-      animation-name: slideInBottonLeftTablet;
-      animation-duration: $default-duration;
-      animation-timing-function: ease-out;
-      animation-fill-mode: forwards;
-    }
-  }
-
-  @media (max-width: $mobile) and (orientation: landscape) {
-    background: none;
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
+ @media (max-width: $mobile) and (orientation: landscape) {
     @keyframes slideInBottonLeftMobile {
       from {
         width: 3.5rem;
@@ -94,48 +63,92 @@
       }
     }
 
+    @keyframes slideOutBottonLeftMobile {
+      from {
+        width: 100%;
+        height: 16rem;
+      }
+      to {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+    }
+    animation-name: slideOutBottonLeftMobile;
+    .screen__footer-wrapper::after {
+      animation-name: slideOutBottonLeftMobile;
+    }
+
     &.screen__footer--full , &.screen__footer--full .screen__footer-wrapper::after {
-      width: 100%;
       height: 16rem;
       animation-name: slideInBottonLeftMobile;
-      animation-duration: $default-duration;
-      animation-timing-function: ease-out;
-      animation-fill-mode: forwards;
     }
+ }
+ @media (max-width: $tablet) and (orientation: portrait) {
+    @keyframes slideInBottonLeftTablet {
+      from {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+      to {
+        width: 100%;
+        height: 18rem;
+      }
+    }
+    @keyframes slideOutBottonLeftTablet {
+      from {
+        width: 100%;
+        height: 18rem;
+      }
+      to {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+    }
+    animation-name: slideOutBottonLeftTablet;
+
+    .screen__footer-wrapper::after {
+      animation-name: slideOutBottonLeftTablet;
+    }
+
+    &.screen__footer--full , &.screen__footer--full .screen__footer-wrapper::after {
+      height: 18rem;
+      animation-name: slideInBottonLeftTablet;
+    }
+ }
+ @media (max-width: $tablet) and (orientation: portrait), (max-width: $mobile) and (orientation: landscape) {
+  background: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0 3.6rem 0 0;
+  animation-duration: $default-duration;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  .screen__footer-wrapper::after {
+    animation-duration: $default-duration;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
   }
+
+  &.screen__footer--full, &.screen__footer--full .screen__footer-wrapper::after {
+    width: 100%;
+    animation-timing-function: ease-out;
+  }
+}
 }
 
 .screen__footer-wrapper {
   @include container;
 
-  @media (max-width: $tablet) and (orientation: portrait) {
-    //opacity: 0;
-
+  @media (max-width: $tablet) and (orientation: portrait), (max-width: $mobile) and (orientation: landscape) {
     .screen__footer--full & {
       opacity: 1;
     }
   }
 
-  @media (max-width: $mobile) and (orientation: landscape) {
-    //opacity: 0;
-
-    .screen__footer--full & {
-      opacity: 1;
-    }
-  }
   &::after {
     content: "";
     background-color: $c-light;
-    @media (max-width: $tablet) and (orientation: portrait) {
-      width: 3.5rem;
-      height: 3.5rem;
-      border-radius: 0 3.6rem 0 0;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-
-    @media (max-width: $mobile) and (orientation: landscape) {
+    @media (max-width: $tablet) and (orientation: portrait), (max-width: $mobile) and (orientation: landscape) {
       width: 3.5rem;
       height: 3.5rem;
       border-radius: 0 3.6rem 0 0;
@@ -157,16 +170,7 @@
   color: $c-dark;
   z-index: 2;
 
-  @media (max-width: $tablet) and (orientation: portrait) {
-    display: block;
-
-    .screen__footer--full & {
-      opacity: 0;
-      pointer-events: none;
-    }
-  }
-
-  @media (max-width: $mobile) and (orientation: landscape) {
+  @media (max-width: $tablet) and (orientation: portrait), (max-width: $mobile) and (orientation: landscape) {
     display: block;
 
     .screen__footer--full & {
@@ -196,18 +200,7 @@
   color: $c-dark;
   z-index: 2;
 
-  @media (max-width: $tablet) and (orientation: portrait) {
-    display: block;
-    opacity: 0;
-    pointer-events: none;
-
-    .screen__footer--full & {
-      opacity: 1;
-      pointer-events: auto;
-    }
-  }
-
-  @media (max-width: $mobile) and (orientation: landscape) {
+  @media (max-width: $tablet) and (orientation: portrait), (max-width: $mobile) and (orientation: landscape) {
     display: block;
     opacity: 0;
     pointer-events: none;
@@ -274,33 +267,6 @@
     font-size: 12px;
   }
 
-  @media (max-width: $tablet) and (orientation: portrait) {
-    padding: 0 0 0 2.5rem;
-    text-transform: none;
-    text-align: left;
-    font-size: 1.4rem;
-    line-height: 1.1;
-    opacity: 0;
-    animation-name: fadeIn;
-    animation-duration: $default-duration;
-    animation-delay: $default-duration;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-  }
-
-  @media (max-width: $mobile) and (orientation: landscape) {
-    padding: 0 0 0 2.5rem;
-    text-transform: none;
-    text-align: left;
-    font-size: 1.4rem;
-    line-height: 1.1;
-    opacity: 0;
-    animation-name: fadeIn;
-    animation-duration: $default-duration;
-    animation-delay: $default-duration;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-  }
 
   p {
     display: flex;
@@ -370,10 +336,35 @@
   animation-fill-mode: forwards;
 }
 
-.screen.active :is(.screen__disclaimer ul, .screen__footer-note) {
-  animation-name: fadeIn;
-  animation-timing-function: ease-out;
+.screen.active {
+  .screen__disclaimer ul, .screen__footer-note {
+    animation-name: fadeIn;
+    animation-timing-function: ease-out;
+  }
+  .screen__footer-note, .screen__footer-announce {
+    @media (max-width: $tablet) and (orientation: portrait), (max-width: $mobile) and (orientation: landscape) {
+      opacity: 0;
+      animation-name: fadeOut;
+      animation-duration: 0s;
+      animation-delay: 0s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
+  }
 
+  .screen__footer--full :is(.screen__footer-note, .screen__footer-announce) {
+    padding: 0 0 0 2.5rem;
+    text-transform: none;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 1.1;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: $default-duration;
+    animation-delay: $default-duration;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
 }
 
 .screen--story {

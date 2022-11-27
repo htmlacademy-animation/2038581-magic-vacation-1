@@ -4,12 +4,12 @@
   --c-puple: #a67ee5;
 }
 
-body.blue {
+body.blue:has(.screen--story.active) {
   --c-dark: #3e72ee;
   --c-puple: #a0ceff;
 }
 
-body.light-blue {
+body.light-blue:has(.screen--story.active) {
   --c-dark: #a7d4ff;
   --c-puple: #3e72ee;
 }
