@@ -161,6 +161,7 @@
   width: 17rem;
   z-index: 1;
 
+
   @media (min-width: $stop-scaling) {
     bottom: 28px;
     width: 170px;
@@ -175,12 +176,41 @@
   }
 }
 
+.screen.active {
+  .slider__pagination.swiper-pagination {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: $default-duration;
+    animation-fill-mode: forwards;
+  }
+
+  .slider__controls {
+    width: 30rem;
+    animation-name: roll, fadeIn;
+    animation-duration: $default-duration;
+    animation-fill-mode: forwards;
+
+    @keyframes roll {
+        from {
+          width: 30rem;
+        }
+        to {
+          width: 17rem;
+        }
+    }
+  }
+}
+
 .slider__control {
   @include btn-reset;
   position: relative;
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  rotate: 180deg;
+  animation-name: rotateButton;
+  animation-duration: $default-duration;
+  animation-fill-mode: forwards;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -244,6 +274,29 @@
   &.swiper-button-disabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+
+  &.slider__control--next {
+     animation-name: rotateNext;
+     @keyframes rotateNext {
+        from {
+          rotate: 180deg;
+        }
+        to {
+          rotate: 0deg;
+        }
+    }
+  }
+   &.slider__control--prev {
+     animation-name: rotatePrev;
+     @keyframes rotatePrev {
+        from {
+          rotate: -180deg;
+        }
+        to {
+          rotate: 0deg;
+        }
+    }
   }
 }
 

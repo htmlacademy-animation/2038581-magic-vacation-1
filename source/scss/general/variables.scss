@@ -1,6 +1,22 @@
-$c-light: #ffffff;
-$c-dark: #5f458c;
-$c-purple: #a67ee5;
+:root {
+  --c-light: #ffffff;
+  --c-dark: #5f458c;
+  --c-puple: #a67ee5;
+}
+
+body.blue:has(.screen--story.active) {
+  --c-dark: #3e72ee;
+  --c-puple: #a0ceff;
+}
+
+body.light-blue:has(.screen--story.active) {
+  --c-dark: #a7d4ff;
+  --c-puple: #3e72ee;
+}
+
+$c-light: var(--c-light);
+$c-dark: var(--c-dark);
+$c-purple: var(--c-puple);
 
 $font: "Proxima Nova", "Arial", sans-serif;
 $font-alt: "Radical",  "Arial", sans-serif;

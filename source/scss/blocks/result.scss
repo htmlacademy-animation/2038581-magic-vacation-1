@@ -410,4 +410,22 @@
       width: 45rem;
     }
   }
+   .result__button {
+      animation-name: fadeIn;
+      animation-duration: $default-duration;
+      animation-fill-mode: forwards;
+   }
+  .result__button > span {
+    animation-name: rollResultButton;
+    animation-duration: $default-duration;
+    animation-fill-mode: forwards;
+    @keyframes rollResultButton {
+      from {
+        transform: translateX(6rem) rotate(180deg);
+      }
+      to {
+        transform: translateX(0) rotate(0deg);
+      }
+    }
+  }
 }
